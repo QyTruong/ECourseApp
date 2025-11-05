@@ -1,10 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+n
+102
+{% extends 'admin/base_site.html' %}
+{% block content %}
+<h1>THỐNG KÊ THÔNG TIN CÁC KHOÁ HỌC</h1>
+
+<ul>
+    {% for s in stats %}
+    <li>{{ s.name }} có {{ s.count }} khoá học</li>
+    {% endfor %}
+</ul>
+{% endblock %}
