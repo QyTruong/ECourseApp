@@ -27,10 +27,11 @@ schema_view = get_schema_view(
         title="Course API",
         default_version='v1',
         description="APIs for CourseApp",
-        contact=openapi.Contact(email="thanh.dh@ou.edu.vn"),
-        license=openapi.License(name="Dương Hữu Thành@2021"),
+        contact=openapi.Contact(email="2351010227truong@ou.edu.vn"),
+        license=openapi.License(name="Truong@1234"),
     ),
     public=True,
+    permission_classes=(permissions.AllowAny,),
 )
 
 urlpatterns = [

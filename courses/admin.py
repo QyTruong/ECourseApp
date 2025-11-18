@@ -25,7 +25,7 @@ class CourseAdmin(admin.ModelAdmin):
 
     class Media:
         css = {
-            'all' : ('static/css/style.css', )
+            'all' : ('static/css/styles.css', )
         }
 
 class LessonAdmin(admin.ModelAdmin):

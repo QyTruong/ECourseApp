@@ -4,12 +4,12 @@
 #echo "=== Thực thi migrate cơ sở dữ liệu ==="
 #python manage.py migrate
 
-echo "=== Tạo superuser ==="
-export DJANGO_SUPERUSER_USERNAME=admin
-export DJANGO_SUPERUSER_EMAIL=admin@example.com
-export DJANGO_SUPERUSER_PASSWORD=Admin@123
-
-python manage.py createsuperuser --no-input || echo "SuperUser đã tồn tại!"
+#echo "=== Tạo superuser ==="
+#export DJANGO_SUPERUSER_USERNAME=admin
+#export DJANGO_SUPERUSER_EMAIL=admin@example.com
+#export DJANGO_SUPERUSER_PASSWORD=Admin@123
+#
+#python manage.py createsuperuser --no-input || echo "SuperUser đã tồn tại!"
 
 #echo "=== Chèn dữ liệu mẫu ==="
 #python manage.py shell  <<EOF
@@ -27,6 +27,6 @@ python manage.py createsuperuser --no-input || echo "SuperUser đã tồn tại!
 #Course.objects.create(name='Python Programming', description='demo', image='https://res.cloudinary.com/dxxwcby8l/image/upload/v1709565062/rohn1l6xtpxedyqgyncs.png', category=c3)
 #
 #EOF
-
+#
 #echo "=== Chạy server Django ==="
 #python manage.py runserver
