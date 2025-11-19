@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 from pathlib import Path
 
 from django.conf.global_settings import AUTH_USER_MODEL
+from oauthlib.oauth2 import Client
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -44,8 +45,15 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     'rest_framework',
-    'drf_yasg'
+    'drf_yasg',
+    'oauth2_provider'
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'oauth2_provider.contrib.rest_framework.OAuth2Authentication',
+    )
+}
 
 import cloudinary
 cloudinary.config(
@@ -145,3 +153,6 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CLIENT_ID = "I7bb8InSBmvaEGTxI9qqodMfimBYC3XRo1jk5axN"
+CLIENT_SECRET = "oeXqvNbNCRvDvGOsUQQ6eBI9gokpsKmDgcBKe8H0Fw7WzUwYP5ZtSpV1lcs8txPiSEmlmnsBRsPPvtRe99lamHfEAQHRSY3ogJV2d7UllzDMd4oTT6LeDFMv4qC9hk2z"

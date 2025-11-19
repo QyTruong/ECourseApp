@@ -2,9 +2,11 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from ckeditor.fields import RichTextField
 from cloudinary.models import CloudinaryField
+from django.db.models import CharField
+
 
 class User(AbstractUser):
-    pass
+    avatar = CloudinaryField(null=True)
 
 class BaseModel(models.Model):
     created_date = models.DateTimeField(auto_now_add=True)
@@ -23,7 +25,7 @@ class Category(models.Model):
 class Course(BaseModel):
     name = models.CharField(max_length=255)
     description = models.TextField(null=True)
-    image = CloudinaryField() #models.ImageField(upload_to='courses/%Y/%m/', null=True)
+    image = CloudinaryField(null=True) #models.ImageField(upload_to='courses/%Y/%m/', null=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
     def __str__(self):
@@ -32,8 +34,9 @@ class Course(BaseModel):
 class Lesson(BaseModel):
     name = models.CharField(max_length=255)
     content = RichTextField()
-    image = CloudinaryField() #models.ImageField(upload_to='lessons/%Y/%m', null=True)
+    image = CloudinaryField(null=True) #models.ImageField(upload_to='lessons/%Y/%m', null=True)
     course = models.ForeignKey(Course, on_delete=models.RESTRICT)
+    tags = models.ManyToManyField('Tag')
 
     def __str__(self):
         return self.name
@@ -42,3 +45,8 @@ class Lesson(BaseModel):
         unique_together = ('name', 'course')
 
 
+class Tag(BaseModel):
+    name = CharField(max_length=50, unique=True)
+
+    def __str__(self):
+        return self.name
