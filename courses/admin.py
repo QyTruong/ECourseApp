@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.utils.safestring import mark_safe
-from .models import Category, Course, Lesson, Tag
+from .models import Category, Course, Lesson, Tag, Comment, Like
 from django import forms
 from django.template.response import TemplateResponse
 from django.db.models import Count
@@ -25,7 +25,7 @@ class CourseAdmin(admin.ModelAdmin):
 
     class Media:
         css = {
-            'all' : ('static/css/styles.css', )
+            'all' : ('/static/css/styles.css', )
         }
 
 class LessonAdmin(admin.ModelAdmin):
@@ -45,6 +45,8 @@ admin_site = MyAdminSite(name="eCourse")
 
 admin_site.register(Category)
 admin_site.register(Tag)
+admin_site.register(Comment)
+admin_site.register(Like)
 admin_site.register(Course, CourseAdmin)
 admin_site.register(Lesson, LessonAdmin)
 # Register your models here.

@@ -26,6 +26,25 @@ Course.objects.create(name='Machine Learning', description='demo', image='https:
 Course.objects.create(name='Deep Learning', description='demo', image='https://res.cloudinary.com/dxxwcby8l/image/upload/v1709565062/rohn1l6xtpxedyqgyncs.png', category=c1)
 Course.objects.create(name='Python Programming', description='demo', image='https://res.cloudinary.com/dxxwcby8l/image/upload/v1709565062/rohn1l6xtpxedyqgyncs.png', category=c3)
 
+t1, _ = Tag.objects.get_or_create(name='techniques')
+t2, _ = Tag.objects.get_or_create(name='software')
+t3, _ = Tag.objects.get_or_create(name='programming')
+
+l1 = Lesson.objects.create(subject='SE Overview', content='Demo', image='https://res.cloudinary.com/dxxwcby8l/image/upload/v1709565062/rohn1l6xtpxedyqgyncs.png', course=co1)
+l1.tags.add(t1)
+l1.tags.add(t2)
+l1.save()
+l2 = Lesson.objects.create(subject='Software Analysis', content='Demo', image='https://res.cloudinary.com/dxxwcby8l/image/upload/v1709565062/rohn1l6xtpxedyqgyncs.png', course=co1)
+l2.tags.add(t2)
+l2.tags.add(t3)
+l2.save()
+l3 = Lesson.objects.create(subject='Software Design', content='Demo', image='https://res.cloudinary.com/dxxwcby8l/image/upload/v1709565062/rohn1l6xtpxedyqgyncs.png', course=co1)
+l3.tags.add(t1)
+l3.tags.add(t2)
+l3.tags.add(t3)
+l3.save()
+l4 = Lesson.objects.create(subject='Black-box Testing', content='Demo', image='https://res.cloudinary.com/dxxwcby8l/image/upload/v1709565062/rohn1l6xtpxedyqgyncs.png', course=co2)
+l5 = Lesson.objects.create(subject='White-box Testing', content='Demo', image='https://res.cloudinary.com/dxxwcby8l/image/upload/v1709565062/rohn1l6xtpxedyqgyncs.png', course=co2)
 EOF
 
 echo "=== Chạy server Django ==="
